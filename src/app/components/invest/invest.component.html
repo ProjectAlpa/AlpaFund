@@ -1,0 +1,20 @@
+<h1>Investment</h1>
+
+<div class="row">
+  <div class="col-sm-6 col-md-3" *ngFor="let token of tokens" [ngClass]="token.symbol === activeToken.symbol ? 'active-token' : ''" (click)="activeToken = token">
+    {{token.token}} : {{token.symbol}}
+  </div>
+</div>
+
+<mat-card>
+  <mat-card-header>Balance</mat-card-header>
+  <mat-card-content>
+    <mat-form-field id="address-selector" class="address-field">
+      <mat-select name="account" (selectionChange)="refreshBalance()" [(value)]="model.account" placeholder="Address">
+        <mat-option *ngFor="let account of accounts" [value]="account">{{account}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p class="dark">You have <span id="balance">{{model.balance}}</span> {{activeToken.symbol}}</p>
+  </mat-card-content>
+</mat-card>

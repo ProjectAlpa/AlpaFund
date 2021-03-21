@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-8">
+    <img class="img-responsive logo" src="assets/Alpa-New-Logo.png" routerLink="" />
+  </div>
+  <div class="col-md-2 text-right centered">
+    <div class="btn btn-default">A -</div>
+  </div>
+  <div class="col-md-2 text-right centered">
+    <div class="btn btn-default" routerLink="unlock-wallet" *ngIf="!web3Service.ready">Unlock Wallet</div>
+    <div class="btn btn-default" *ngIf="web3Service.ready">Wallet Ballance</div>
+  </div>
+</div>

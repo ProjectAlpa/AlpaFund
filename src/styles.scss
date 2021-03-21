@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  font: normal 15px / 27px "Roboto", Helvetica, Arial, Verdana, sans-serif;
+  word-spacing: normal;
+  color: #85868c !important;
+  background: #111111 url(~assets/grid-light.png) repeat fixed left top !important;
+  background-size: auto;
+}
+
+h1 {
+  -webkit-text-stroke: 0.5px white;
+  color: #CB9D00;
+  font-size: larger;
+  /* 1 pixel black shadow to left, top, right and bottom */
+  //text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+p, .btn {
+  color: white !important;
+  font-size: 1.4em !important;
+}
+
+.btn {
+  border: 1px solid grey !important;
+  border-style: outset;
+}
+
+.centered {
+  margin: auto;
+}

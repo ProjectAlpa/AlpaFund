@@ -12,6 +12,7 @@ import {
   MatSelectModule, MatSnackBarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatSelectModule,
     MatSnackBarModule,
     RouterModule,
-    UtilModule
+    UtilModule,
+    FormsModule
   ],
   declarations: [MetaSenderComponent],
   exports: [MetaSenderComponent]

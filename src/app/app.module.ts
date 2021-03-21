@@ -14,10 +14,19 @@ import {
   MatInputModule,
   MatToolbarModule
 } from '@angular/material';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {AlpaLayoutModule} from './alpa-layout/alpa-layout.module';
+import { UnlockWalletComponent } from './components/unlock-wallet/unlock-wallet.component';
+import { InvestComponent } from './components/invest/invest.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    UnlockWalletComponent,
+    InvestComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,7 +39,10 @@ import {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MetaModule
+    MetaModule,
+    AppRoutingModule,
+    AlpaLayoutModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

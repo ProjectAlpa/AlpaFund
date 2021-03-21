@@ -8,7 +8,7 @@ declare let window: any;
 
 @Injectable()
 export class Web3Service {
-  private web3: any;
+  public web3: any;
   private accounts: string[];
   public ready = false;
 
@@ -16,7 +16,7 @@ export class Web3Service {
 
   constructor() {
     window.addEventListener('load', (event) => {
-      this.bootstrapWeb3();
+      // this.bootstrapWeb3();
     });
   }
 
@@ -24,9 +24,9 @@ export class Web3Service {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof window.ethereum !== 'undefined') {
       // Use Mist/MetaMask's provider
-      window.ethereum.enable().then(() => {
-        this.web3 = new Web3(window.ethereum);
-      });
+      window.web3 = new Web3(window.ethereum);
+      this.web3 = window.web3;
+      window.ethereum.enable();
     } else {
       console.log('No web3? You should consider trying MetaMask!');
 
@@ -39,14 +39,18 @@ export class Web3Service {
     setInterval(() => this.refreshAccounts(), 100);
   }
 
-  public async artifactsToContract(artifacts) {
+  public async artifactsToContract(artifacts, address?) {
     if (!this.web3) {
       const delay = new Promise(resolve => setTimeout(resolve, 100));
       await delay;
-      return await this.artifactsToContract(artifacts);
+      return await this.artifactsToContract(artifacts, address);
     }
-
-    const contractAbstraction = contract(artifacts);
+    let contractAbstraction;
+    if (address) {
+      contractAbstraction = contract(artifacts, address);
+    } else {
+      contractAbstraction = contract(artifacts);
+    }
     contractAbstraction.setProvider(this.web3.currentProvider);
     return contractAbstraction;
 
@@ -70,5 +74,9 @@ export class Web3Service {
     }
 
     this.ready = true;
+  }
+
+  public getAccounts(): string[] {
+    return this.accounts;
   }
 }
