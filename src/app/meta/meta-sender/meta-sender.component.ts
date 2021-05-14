@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material';
 
 declare let require: any;
 const metacoin_artifacts = require('../../../../build/contracts/MetaCoin.json');
-const alpafund_artifacts = require('../../../../build/contracts/AlpaFund.json');
+const alpafund_artifacts = require('../../../../build/contracts/AlpaFundUniswap.json');
 
 @Component({
   selector: 'app-meta-sender',

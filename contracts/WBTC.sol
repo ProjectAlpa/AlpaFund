@@ -1,8 +1,5 @@
-///**
-// *Submitted for verification at Etherscan.io on 2018-11-24
-//*/
-//
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.5.0 <0.9.0;
 //
 //// File: openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol
 //

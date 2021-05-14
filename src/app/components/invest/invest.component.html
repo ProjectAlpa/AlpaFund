@@ -6,6 +6,12 @@
   </div>
 </div>
 
+<br />
+
+<mat-card>
+  <mat-card-header>Portfolio Value: {{model.portfolioValue}} {{model.stage}}</mat-card-header>
+</mat-card>
+<br />
 <mat-card>
   <mat-card-header>Balance</mat-card-header>
   <mat-card-content>
@@ -15,6 +21,25 @@
       </mat-select>
     </mat-form-field>
 
-    <p class="dark">You have <span id="balance">{{model.balance}}</span> {{activeToken.symbol}}</p>
+    <p class="dark">You have <span id="balance">{{model.balance}}</span> {{activeToken?.symbol}}</p>
+  </mat-card-content>
+</mat-card>
+<br />
+<mat-card>
+  <mat-card-header>Invest</mat-card-header>
+  <mat-card-content>
+
+    <button mat-button (click)="sendETH()">Send 1 Ether</button>
+  </mat-card-content>
+</mat-card>
+
+<br />
+<mat-card>
+  <mat-card-header>Strategies</mat-card-header>
+  <mat-card-content>
+    <button mat-button (click)="disableFund()">Disable Fund</button>
+    <button mat-button (click)="enableFund()">Enable Fund</button>
+    <button mat-button (click)="sendETH()">Send 1 Ether</button>
+    <button mat-button (click)="addPortfolioStrategy()">Add Portfolio Strategy</button>
   </mat-card-content>
 </mat-card>

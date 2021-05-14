@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.5.0 <0.9.0;
 
 import "./ConvertLib.sol";
 
@@ -29,6 +30,9 @@ contract MetaCoin {
 	}
 
 	function getBalance(address addr) public view returns(uint) {
+		return balances[addr];
+	}
+	function balanceOf(address addr) public view returns(uint) {
 		return balances[addr];
 	}
 }
