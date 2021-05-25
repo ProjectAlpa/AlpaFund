@@ -3,6 +3,30 @@
 <p>This is the beginning of a REVOLUTION: We believe that blockchain technology is one of the most exciting and probably the most important technological innovation in computer science.</p>
 <p>The blockchain spase is plotting a revolution with the idea of new architecture for the web. In the same way the internet has changed our way to interact, we believe blockchain technology will have a significant impact on our lives. Blockchain creates a decentralized architecture that is more fair and just.</p>
 <br />
+
+<div class="row">
+  <div class="col-sm-6 col-md-3" *ngFor="let token of tokens" [ngClass]="token.symbol === activeToken.symbol ? 'active-token' : ''" (click)="changeToken(token)">
+    <img src="{{token.logoURI}}" alt="{{token.name}} Logo" width="20px;">{{token.name}} : {{token.symbol}}
+  </div>
+</div>
+
+{{activeToken?.address}}
+<div *ngIf="toggle && activeToken">
+  <iframe
+          [src]="url | safe"
+          height="660px"
+          width="100%"
+          style="
+    border: 0;
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+    max-width: 600px;
+    min-width: 300px;
+  "
+          title="Uniswap Integration"></iframe>
+</div>
+
 <div class="btn btn-default" routerLink="invest" *ngIf="web3Service.ready">
   Invest
 </div>

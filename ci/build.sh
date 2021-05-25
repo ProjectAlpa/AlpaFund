@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 set -x
 set -e
-ganache-cli -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat" > /dev/null &
+ganache-cli --account="0xfb38ccf2c4838e55f48b448aa15016b7715b4af70e7247f6bd4d43b556569271,100000000000000000000" --account="0xc3203d8e203451c927be56571a79405ae0700abb7f45828ceb70c8c703e8d11a,100000000000000000000" > /dev/null &
 GANACHE_PID=$!
 trap "kill $GANACHE_PID" EXIT INT TERM
 
 truffle compile
-truffle migrate
+truffle migrate --network development
 truffle test
 
 npm test

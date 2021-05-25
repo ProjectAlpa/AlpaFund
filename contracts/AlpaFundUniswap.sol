@@ -9,7 +9,21 @@ import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./interfaces/ChainLinkAggregatorV3Interface.sol";
 import "../node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 
+
+import '../node_modules/@uniswap/v2-core/contracts/interfaces/IUniswapV2Callee.sol';
+
+import './libraries/UniswapV2Library.sol';
+import './interfaces/V1/IUniswapV1Factory.sol';
+import './interfaces/V1/IUniswapV1Exchange.sol';
+import './interfaces/IUniswapV2Router02.sol';
+import './interfaces/IERC20.sol';
+import './interfaces/IWETH.sol';
+
 contract AlpaFundUniswap is AlpaFundCore, AlpaFund {
+
+  IUniswapV1Factory factoryV1;
+  address factory;
+  IWETH WETH;
 
   IUniswapV2Router02 uniswap2 = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
 
@@ -23,8 +37,11 @@ contract AlpaFundUniswap is AlpaFundCore, AlpaFund {
     uint80 answeredInRound;
   }
 
-  constructor() public {
+  constructor(address _factory, address _factoryV1, address router) public {
     owner = msg.sender;
+    factoryV1 = IUniswapV1Factory(_factoryV1);
+    factory = _factory;
+    WETH = IWETH(IUniswapV2Router02(router).WETH());
   }
 
 //  function() external payable atStage(Stages.OPERATIONAL) {

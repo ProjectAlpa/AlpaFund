@@ -20,12 +20,12 @@ module.exports = function(deployer, network) {
   // deployer.deploy(AlpaFund);
   // deployer.deploy(AlpaFundCore);
   if (network === "kovan") {
+    // Do something specific to the network named "kovan".
     // Perform a different step otherwise.
-    // Do something specific to the network named "live".
     deployer.deploy(FlashSwap, factoryV2address, factoryV1address, routerV2address);
+    deployer.deploy(AlpaFundUniswap);
   } else {
     deployer.deploy(AlpaFundUniswap);
-
   }
   // deployer.deploy(AlpaMe);
   // deployer.deploy(AlpaMeUniswap);
