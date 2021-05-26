@@ -7,7 +7,6 @@ import {AppComponent} from './app.component';
 import {MetaModule} from './meta/meta.module';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
 import {WelcomeComponent} from './components/welcome/welcome.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AlpaLayoutModule} from './alpa-layout/alpa-layout.module';
@@ -18,6 +17,9 @@ import {SafePipe} from './pipes/safe.pipe';
 import {APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,6 @@ import {InMemoryCache} from '@apollo/client/core';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
